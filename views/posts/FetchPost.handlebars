@@ -1,0 +1,38 @@
+<section id="fetchPostBlock">
+  <article class="container my-2">
+    <div class="fetch-post">
+      <div class="row">
+        {{#each posts}}
+          <div class="col-md-4 card">
+            <div class="card-body">
+              <h3
+                class="card-title text-primary font-weight-bold text-uppercase  border-bottom pb-2"
+              >
+                {{title}}
+              </h3>
+              <p class="card-text">
+                {{details}}
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="btn-group my-2 btn-block">
+                <a class="btn btn-outline-info" href="/posts/edit-post/{{_id}}">
+                  Edit
+                </a>
+                <form
+                  action="/posts/delete-post/{{_id}}?_method=DELETE"
+                  method="POST"
+                >
+                  <input type="hidden" name="_method" value="DELETE" />
+                  <button class="btn btn-outline-danger">
+                    delete
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </article>
+</section>

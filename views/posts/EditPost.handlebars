@@ -1,0 +1,54 @@
+<section id="postBlock" class="card col-md-6 mx-auto my-4">
+  <article class="card-body">
+    <h2
+      class="display-5 text-center font-weight-bold text-uppercase text-primary"
+    >
+      Update Post
+    </h2>
+    {{! handlebar looping }}
+    {{#each errors}}
+      <h4 style="color:red">
+        {{text}}
+      </h4>
+    {{else}}
+
+    {{/each}}
+    {{! //end of handlebar looping }}
+    <form action="/posts//edit-post/{{editPost._id}}?_method=PUT" method="POST">
+      <input type="hidden" name="_method" value="PUT" />
+      <div class="form-group">
+        <label for="title">
+          Title
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          id="title"
+          value={{editPost.title}}
+          placeholder="enter post title"
+        />
+      </div>
+      {{! ending here  }}
+      <div class="form-group">
+        <label for="details">
+          details
+        </label>
+        <textarea
+          cols="10"
+          rows="10"
+          name="details"
+          id="details"
+          class="form-control"
+        >
+          {{editPost.details}}
+        </textarea>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-outline-primary btn-block my-2">
+          Update Post
+        </button>
+      </div>
+    </form>
+  </article>
+</section>
